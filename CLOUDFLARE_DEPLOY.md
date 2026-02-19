@@ -27,9 +27,9 @@ Vercel 관련 설정을 모두 제거했으므로, Cloudflare Pages 대시보드
 
 *   **Node.js compatibility**: `nodejs_compat` 플래그를 추가하거나 활성화하세요. (Edge Runtime에서 Resend SDK 사용 시 필요할 수 있습니다.)
 
-## 4. R2 버킷 설정 (캐싱용)
+## 4. R2 버킷 설정 (선택 사항, 캐싱용)
 
-OpenNext는 R2를 사용하여 캐싱을 최적화합니다. Cloudflare 대시보드에서 R2 버킷을 생성하세요:
+OpenNext는 R2를 사용하여 캐싱을 최적화할 수 있습니다. Cloudflare 대시보드에서 R2 버킷을 생성하세요 (생성하지 않으면 캐싱 없이 배포됩니다):
 
 *   버킷 이름: `cache`
 *   지역: 원하는 지역 선택
