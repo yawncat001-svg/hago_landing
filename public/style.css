@@ -17,6 +17,7 @@ body {
   background: #fff;
   line-height: 1.7;
   letter-spacing: -0.02em;
+  padding-top: 52px;
 }
 
 /* ===== TYPOGRAPHY ===== */
@@ -136,7 +137,6 @@ nav .nav-links a:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 52px;
   background: #fbfbfd;
 }
 
@@ -627,4 +627,85 @@ footer p {
   .form-wrapper {
     padding: 2rem 1.5rem;
   }
+}
+
+/* ===== Footer (Simple) ===== */
+
+.site-footer {
+  background: #1d1d1f;
+  color: #6e6e73;
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  padding: 3rem 0 2rem;
+}
+
+.footer-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.footer-logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f5f5f7;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.footer-tagline {
+  color: #86868b;
+  margin-top: 0.375rem;
+  font-size: 0.8125rem;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  color: #86868b;
+  text-decoration: none;
+  font-size: 0.8125rem;
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+  color: #f5f5f7;
+}
+
+.footer-divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin: 1.5rem auto;
+  max-width: 400px;
+}
+
+.footer-legal {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.footer-legal a {
+  color: #6e6e73;
+  text-decoration: none;
+  font-size: 0.75rem;
+  transition: color 0.2s ease;
+}
+
+.footer-legal a:hover {
+  color: #f5f5f7;
+}
+
+.footer-copy {
+  color: #48484a;
+  font-size: 0.75rem;
 }
