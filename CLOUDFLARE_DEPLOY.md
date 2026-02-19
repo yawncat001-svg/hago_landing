@@ -9,7 +9,7 @@ Vercel 관련 설정을 모두 제거했으므로, Cloudflare Pages 대시보드
 *   **프레임워크 미리 설정 (Framework preset)**: `None` (또는 `Next.js`)
 *   **빌드 명령 (Build command)**: `opennextjs-cloudflare build`
 *   **빌드 출력 디렉터리 (Build output directory)**: `.open-next`
-    *   *참고: `.vercel`이라는 이름은 Cloudflare의 빌드 도구가 사용하는 표준 규격 명칭일 뿐, Vercel 서비스와는 무관합니다.*
+    *   *참고: `.open-next`는 OpenNext가 사용하는 출력 디렉터리입니다.*
 *   **루트 디렉터리 (Root directory)**: `/` (또는 비워둠)
     *   *참고: 이제 프로젝트 파일들이 레포지토리 최상위(Root)에 위치하므로 설정을 반드시 `/`로 변경해야 합니다.*
 
@@ -27,7 +27,14 @@ Vercel 관련 설정을 모두 제거했으므로, Cloudflare Pages 대시보드
 
 *   **Node.js compatibility**: `nodejs_compat` 플래그를 추가하거나 활성화하세요. (Edge Runtime에서 Resend SDK 사용 시 필요할 수 있습니다.)
 
-## 4. 업데이트 방법
+## 4. R2 버킷 설정 (캐싱용)
+
+OpenNext는 R2를 사용하여 캐싱을 최적화합니다. Cloudflare 대시보드에서 R2 버킷을 생성하세요:
+
+*   버킷 이름: `cache`
+*   지역: 원하는 지역 선택
+
+## 5. 업데이트 방법
 
 *   `main` 브랜치에 코드가 푸시되면 Cloudflare가 자동으로 감지하여 빌드 및 배포를 진행합니다.
 *   빌드 명령이나 출력 디렉터리가 위와 다를 경우 `Output directory not found` 에러가 발생하므로 반드시 확인해 주세요.
