@@ -1,0 +1,33 @@
+# robots.txt — 하품하는고양이 (www.yawncat.co.kr)
+# 검색엔진 + AI 크롤러 모두 허용
+
+User-agent: *
+Allow: /
+
+# AI 크롤러 명시적 허용
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# 사이트맵
+Sitemap: https://www.yawncat.co.kr/sitemap.xml
