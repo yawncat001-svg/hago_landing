@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 
 // Resend 인스턴스 초기화 (RESEND_API_KEY 환경변수 필요)
 const resend = new Resend(process.env.RESEND_API_KEY);

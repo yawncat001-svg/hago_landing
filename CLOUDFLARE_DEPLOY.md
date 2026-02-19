@@ -7,8 +7,8 @@
 Vercel 관련 설정을 모두 제거했으므로, Cloudflare Pages 대시보드에서 아래와 같이 **정확하게** 입력해야 배포에 실패하지 않습니다.
 
 *   **프레임워크 미리 설정 (Framework preset)**: `None` (또는 `Next.js`)
-*   **빌드 명령 (Build command)**: `npx @cloudflare/next-on-pages`
-*   **빌드 출력 디렉터리 (Build output directory)**: `.vercel/output/static`
+*   **빌드 명령 (Build command)**: `opennextjs-cloudflare build`
+*   **빌드 출력 디렉터리 (Build output directory)**: `.open-next`
     *   *참고: `.vercel`이라는 이름은 Cloudflare의 빌드 도구가 사용하는 표준 규격 명칭일 뿐, Vercel 서비스와는 무관합니다.*
 *   **루트 디렉터리 (Root directory)**: `/` (또는 비워둠)
     *   *참고: 이제 프로젝트 파일들이 레포지토리 최상위(Root)에 위치하므로 설정을 반드시 `/`로 변경해야 합니다.*
