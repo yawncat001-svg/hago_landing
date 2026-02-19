@@ -314,5 +314,58 @@
       offset: 80
     });
   </script>
+
+<!--aeo-->
+<!-- mne.html </body> 직전에 삽입 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "HAGO MNE",
+      "alternateName": "므네",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "url": "https://www.yawncat.co.kr/mne.html",
+      "description": "QR코드로 환자의 5년 진료기록, 투약내역, 실손보험 한도를 병원에 즉시 전달하는 의료 데이터 조회 B2B SaaS 서비스",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "90000",
+        "highPrice": "150000",
+        "priceCurrency": "KRW",
+        "offerCount": "2"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "하품하는고양이",
+        "url": "https://www.yawncat.co.kr"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "MNE는 어떤 데이터를 제공하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MNE는 환자의 과거 5년 치 진료기록(진료일, 진단명, 치료내용), 투약내역(약품명, 용량, 복용 주기, 상호작용 경고), 실손보험 가입 여부 및 잔여 보장 한도를 하나의 화면에 통합 제공합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "MNE 도입 절차는 어떻게 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "문의·제휴 페이지에서 접수 후, 담당자가 EMR 연동 환경을 확인합니다. 기존 EMR에 API 연동 방식으로 설치되며, 별도 하드웨어 없이 웹 대시보드로 즉시 이용 가능합니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 </body>
 </html>

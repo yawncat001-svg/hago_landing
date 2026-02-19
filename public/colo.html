@@ -378,5 +378,55 @@
       offset: 80
     });
   </script>
+  <!--aeo-->
+  <!-- colo.html </body> 직전에 삽입 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "HAGO COLO",
+      "alternateName": "AI 케어콜",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "url": "https://www.yawncat.co.kr/colo.html",
+      "description": "AI 기반 정기 안부전화로 고령 환자의 복약·건강 상태를 확인하고 가족·약국·병원에 실시간 리포트를 전달하는 케어콜 서비스",
+      "offers": {
+        "@type": "Offer",
+        "price": "20000",
+        "priceCurrency": "KRW"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "하품하는고양이",
+        "url": "https://www.yawncat.co.kr"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "COLO는 하루에 몇 번 전화하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "기본 설정은 1일 1회이며, 복약 시간에 맞춰 오전·오후 2회로 변경할 수 있습니다. 통화 시간은 평균 2~3분이며, 환자의 응답 패턴에 따라 AI가 자동 조절합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "이상징후 감지 시 어떻게 알림이 가나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI가 대화 중 이상 패턴(무응답, 혼란, 통증 호소 등)을 감지하면 즉시 앱 푸시, SMS, 이메일로 자녀·약국·담당 병원에 동시 알림을 전송합니다. 위험 등급에 따라 지자체 긴급 돌봄 연계도 가능합니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 </body>
 </html>
