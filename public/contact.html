@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문의·제휴 — HAGO</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">HAGO</a>
+    <ul class="nav-links">
+      <li><a href="mne.html">MNE</a></li>
+      <li><a href="colo.html">COLO</a></li>
+      <li><a href="synergy.html">시너지</a></li>
+      <li><a href="contact.html" class="active">문의·제휴</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="contact-hero">
+  <div class="container">
+    <p class="label">Contact &amp; Partnership</p>
+    <h1>함께 만들어갈<br>돌봄을 이야기합니다.</h1>
+    <p>서비스 도입, 기술 제휴, 지자체 협력, 투자 관련 문의까지.<br>HAGO 팀이 빠르게 회신드리겠습니다.</p>
+  </div>
+</section>
+
+<!-- Category Cards -->
+<section class="section-gray" style="padding:4rem 0 5rem">
+  <div class="container">
+    <div class="contact-categories">
+
+      <div class="category-card" onclick="selectCategory('service')">
+        <span class="category-icon">💬</span>
+        <h3>서비스 문의</h3>
+        <p>MNE·COLO 서비스 도입,<br>데모 시연, 가격 안내 등</p>
+      </div>
+
+      <div class="category-card" onclick="selectCategory('partnership')">
+        <span class="category-icon">🤝</span>
+        <h3>제휴·협력</h3>
+        <p>약국·병원 네트워크, EMR 연동,<br>카드사·지자체 파트너십</p>
+      </div>
+
+      <div class="category-card" onclick="selectCategory('invest')">
+        <span class="category-icon">📈</span>
+        <h3>투자·IR</h3>
+        <p>시리즈 투자, IR 미팅,<br>사업 제안서 요청 등</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form -->
+<section class="form-section" id="form-section">
+  <div class="container">
+    <div class="form-wrapper">
+      <h2>문의하기</h2>
+      <p class="form-sub">영업일 기준 24시간 이내 회신드립니다.</p>
+
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+
+        <!-- Category -->
+        <div class="form-group">
+          <label>문의 유형 <span class="required">*</span></label>
+          <select id="category" name="category" required>
+            <option value="" disabled selected>선택해 주세요</option>
+            <option value="service-mne">서비스 문의 — MNE (기억)</option>
+            <option value="service-colo">서비스 문의 — COLO (소통)</option>
+            <option value="service-both">서비스 문의 — MNE + COLO 통합</option>
+            <option value="partnership-pharmacy">제휴 — 약국 네트워크</option>
+            <option value="partnership-hospital">제휴 — 병·한의원 / EMR</option>
+            <option value="partnership-gov">제휴 — 지자체 / 공공기관</option>
+            <option value="partnership-card">제휴 — 카드사 / 보험사</option>
+            <option value="partnership-tech">제휴 — 기술 파트너</option>
+            <option value="invest">투자 · IR</option>
+            <option value="media">언론 · 미디어</option>
+            <option value="other">기타</option>
+          </select>
+        </div>
+
+        <!-- Name & Company -->
+        <div class="form-row">
+          <div class="form-group">
+            <label>이름 <span class="required">*</span></label>
+            <input type="text" name="name" placeholder="홍길동" required>
+          </div>
+          <div class="form-group">
+            <label>소속 / 기관명 <span class="required">*</span></label>
+            <input type="text" name="company" placeholder="기관 또는 회사명" required>
+          </div>
+        </div>
+
+        <!-- Role & Region -->
+        <div class="form-row">
+          <div class="form-group">
+            <label>직함 / 역할</label>
+            <input type="text" name="role" placeholder="예: 대표, 담당 약사, 정보화 담당">
+          </div>
+          <div class="form-group">
+            <label>지역</label>
+            <select name="region">
+              <option value="" disabled selected>선택 (선택사항)</option>
+              <option value="seoul">서울</option>
+              <option value="gyeonggi">경기</option>
+              <option value="incheon">인천</option>
+              <option value="busan">부산</option>
+              <option value="daegu">대구</option>
+              <option value="daejeon">대전</option>
+              <option value="gwangju">광주</option>
+              <option value="ulsan">울산</option>
+              <option value="sejong">세종</option>
+              <option value="gangwon">강원</option>
+              <option value="chungbuk">충북</option>
+              <option value="chungnam">충남</option>
+              <option value="jeonbuk">전북</option>
+              <option value="jeonnam">전남</option>
+              <option value="gyeongbuk">경북</option>
+              <option value="gyeongnam">경남</option>
+              <option value="jeju">제주</option>
+              <option value="overseas">해외</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="form-row">
+          <div class="form-group">
+            <label>이메일 <span class="required">*</span></label>
+            <input type="email" name="email" placeholder="email@company.com" required>
+          </div>
+          <div class="form-group">
+            <label>연락처 <span class="required">*</span></label>
+            <input type="tel" name="phone" placeholder="010-0000-0000" required>
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div class="form-group">
+          <label>문의 내용 <span class="required">*</span></label>
+          <textarea name="message" placeholder="도입 희망 시기, 예상 규모, 협력 제안 내용 등을 자유롭게 작성해 주세요." required></textarea>
+        </div>
+
+        <!-- File (optional) -->
+        <div class="form-group">
+          <label>첨부파일 (선택)</label>
+          <input type="file" name="attachment" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.jpg,.png" style="padding:0.625rem 1rem">
+        </div>
+
+        <!-- Consent -->
+        <label class="form-consent">
+          <input type="checkbox" id="consent" required>
+          <span>개인정보 수집·이용에 동의합니다. 수집 항목: 이름, 소속, 이메일, 연락처, 문의 내용. 보유 기간: 문의 처리 완료 후 1년. 동의를 거부할 권리가 있으며, 거부 시 문의 접수가 제한됩니다.</span>
+        </label>
+
+        <!-- Submit -->
+        <button type="submit" class="submit-button">문의 보내기</button>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Info -->
+<section class="info-bar">
+  <div class="container">
+    <h2 style="font-size:1.5rem">빠른 연락</h2>
+    <div class="info-items">
+      <div class="info-item">
+        <strong>이메일</strong>
+        hago@yawncat.co.kr
+      </div>
+      <div class="info-item">
+        <strong>전화</strong>
+        1588-0009
+      </div>
+      <div class="info-item">
+        <strong>파트너사</strong>
+        <a href="mailto:contact@sourcingstart.com">소싱스타트</a>, 
+        <a href="mailto:contact@dls.co.kr">디알에스</a>, 
+        <a href="mailto:contact@soommeditech.com">숨메디텍</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2026 하품하는고양이 yawncat.co.kr &mdash; 깨어나는 돌봄, HAGO</p>
+</footer>
+
+<!-- Confirmation Overlay -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-card">
+    <div class="checkmark">✓</div>
+    <h3>문의가 접수되었습니다.</h3>
+    <p>영업일 기준 24시간 이내로<br>담당자가 회신드리겠습니다.</p>
+    <a href="index.html" class="cta-button">홈으로 돌아가기</a>
+  </div>
+</div>
+
+<!-- Script -->
+<script>
+// Category card click → auto-select dropdown
+function selectCategory(type) {
+  const select = document.getElementById('category');
+  const map = {
+    'service': 'service-both',
+    'partnership': 'partnership-pharmacy',
+    'invest': 'invest'
+  };
+  select.value = map[type] || '';
+  document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Form submit handler
+function handleSubmit(e) {
+  e.preventDefault();
+
+  const form = document.getElementById('contactForm');
+  const formData = new FormData(form);
+
+  // 실제 운영 시 여기에 fetch API 또는 이메일 전송 로직 연결
+  // 예: Google Forms, Formspree, 자체 백엔드 등
+  //
+  // fetch('https://your-endpoint.com/contact', {
+  //   method: 'POST',
+  //   body: formData
+  // }).then(res => { ... });
+
+  // 현재는 UI 확인용으로 확인 오버레이만 표시
+  document.getElementById('confirmOverlay').classList.add('active');
+  form.reset();
+}
+
+// Close overlay on outside click
+document.getElementById('confirmOverlay').addEventListener('click', function(e) {
+  if (e.target === this) {
+    this.classList.remove('active');
+  }
+});
+</script>
+
+</body>
+</html>
