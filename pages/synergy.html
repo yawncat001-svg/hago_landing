@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAGO — 기억과 소통이 만나는 곳</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* synergy page specific */
+    .loop-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+      margin-bottom: 3rem;
+    }
+    .loop-number {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .loop-number.mne {
+      background: #e0f2f7;
+      color: #0a7a8f;
+    }
+    .loop-number.colo {
+      background: #fdf0e0;
+      color: #b8860b;
+    }
+    .loop-number.hago {
+      background: linear-gradient(135deg, #e0f2f7, #fdf0e0);
+      color: #1d1d1f;
+    }
+    .loop-content h3 {
+      margin-bottom: 0.5rem;
+    }
+    .loop-tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 980px;
+      margin-bottom: 0.5rem;
+    }
+    .loop-tag.mne {
+      background: #e0f2f7;
+      color: #0a7a8f;
+    }
+    .loop-tag.colo {
+      background: #fdf0e0;
+      color: #b8860b;
+    }
+
+    @media (max-width: 768px) {
+      .loop-step { grid-template-columns: 56px 1fr; gap: 1rem; }
+      .loop-number { width: 48px; height: 48px; font-size: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">HAGO</a>
+      <ul class="nav-links">
+        <li><a href="mne.html">MNE</a></li>
+        <li><a href="colo.html">COLO</a></li>
+        <li><a href="synergy.html" style="color:#1d1d1f;">시너지</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container text-center">
+      <p class="label">MNE × COLO</p>
+      <h1>따로 돌지 않습니다.<br>하나로 순환합니다.</h1>
+      <p class="mt-2">
+        MNE가 수집한 기록이 COLO의 대화를 개인화하고,<br>
+        COLO가 수집한 데이터가 다시 MNE의 진료를 정밀화합니다.<br>
+        이 순환이 반복될수록, 돌봄의 품질은 올라갑니다.
+      </p>
+    </div>
+
+    <div class="container">
+      <div class="image-placeholder mt-3">
+        <!--
+        IMAGE PROMPT — Synergy Hero (Infinity Loop):
+        A large infinity symbol (∞) rendered as a flowing,
+        luminous ribbon in the center of the image.
+        The left loop glows in teal gradient — labeled "MNE 기억"
+        with small floating icons inside: hospital, medical chart,
+        prescription, insurance card.
+        The right loop glows in warm gold gradient — labeled "COLO 소통"
+        with small floating icons inside: phone with voice waves,
+        pharmacy, family notification, heart pulse.
+        At the center intersection point where loops cross:
+        a glowing white node with "HAGO" text and a minimal
+        cat silhouette icon (mid-stretch/yawn pose).
+        Thin data flow particles (small dots) travel along the ribbon,
+        showing continuous circulation.
+        Background: clean white with very subtle radial gradient.
+        Style: modern 3D-rendered infographic, premium and minimal,
+        Apple keynote presentation aesthetic.
+        Aspect ratio 16:9.
+        -->
+        이미지 영역 — MNE × COLO 인피니티 루프 다이어그램
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA LOOP DETAIL -->
+  <section class="section-dark">
+    <div class="container text-center">
+      <p class="label">The Data Loop</p>
+      <h2 style="color:#f5f5f7;">데이터가 순환하는<br>6단계.</h2>
+      <p class="mt-2">
+        병원 안의 기록이 병원 밖의 돌봄을 개인화하고,
+        병원 밖의 돌봄 데이터가 다시 병원 안의 진료를 정밀화합니다.
+      </p>
+    </div>
+
+    <div class="container mt-4">
+
+      <div class="loop-step">
+        <div class="loop-number mne">1</div>
+        <div class="loop-content">
+          <span class="loop-tag mne">MNE</span>
+          <h3 style="color:#f5f5f7;">병원 방문 — 기록 조회</h3>
+          <p>환자가 병원에 도착하면 MNE가 5년 진료기록, 투약내역, 실손보험 한도를 의료진에게 즉시 전달합니다.</p>
+        </div>
+      </div>
+
+      <div class="loop-step">
+        <div class="loop-number mne">2</div>
+        <div class="loop-content">
+          <span class="loop-tag mne">MNE</span>
+          <h3 style="color:#f5f5f7;">진료 완료 — 데이터 업데이트</h3>
+          <p>새로운 진료 결과와 처방 데이터가 HAGO 플랫폼에 자동으로 업데이트됩니다.</p>
+        </div>
+      </div>
+
+      <div class="loop-step">
+        <div class="loop-number colo">3</div>
+        <div class="loop-content">
+          <span class="loop-tag colo">COLO</span>
+          <h3 style="color:#f5f5f7;">퇴원 후 — 맞춤 케어콜 시작</h3>
+          <p>새 처방 정보가 COLO에 반영되어, 다음 전화부터 신규 약물 복약 확인이 시작됩니다.</p>
+        </div>
+      </div>
+
+      <div class="loop-step">
+        <div class="loop-number colo">4</div>
+        <div class="loop-content">
+          <span class="loop-tag colo">COLO</span>
+          <h3 style="color:#f5f5f7;">일상 모니터링 — 이상 감지</h3>
+          <p>AI가 대화를 분석하여 건강 이상 징후를 감지하면, 약국·자녀·병원에 단계별 알림을 전송합니다.</p>
+        </div>
+      </div>
+
+      <div class="loop-step">
+        <div class="loop-number colo">5</div>
+        <div class="loop-content">
+          <span class="loop-tag colo">COLO</span>
+          <h3 style="color:#f5f5f7;">재방문 유도 — 선제적 대응</h3>
+          <p>이상 징후 데이터를 기반으로 병원 재방문을 권유하고, 약국 약사가 사전 복약 상담을 수행합니다.</p>
+        </div>
+      </div>
+
+      <div class="loop-step">
+        <div class="loop-number hago">6</div>
+        <div class="loop-content">
+          <span class="loop-tag mne">MNE</span> <span class="loop-tag colo">COLO</span>
+          <h3 style="color:#f5f5f7;">재방문 시 — 통합 브리핑</h3>
+          <p>MNE가 기존 진료기록에 더해 COLO의 일상 건강 데이터까지 의료진에게 제공합니다. 의사는 병원 밖에서 무슨 일이 있었는지까지 파악한 상태로 진료를 시작합니다.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHY IT MATTERS -->
+  <section>
+    <div class="container text-center">
+      <p class="label">Why It Matters</p>
+      <h2>따로일 때와<br>함께일 때의 차이.</h2>
+    </div>
+    <div class="container">
+      <div class="feature-row mt-4">
+        <div style="padding:2.5rem; background:#f5f5f7; border-radius:16px;">
+          <h3 style="color:#a1a1a6;">따로일 때</h3>
+          <p class="mt-1" style="font-size:0.9375rem;">
+            진료기록 조회 서비스는 병원 안에서 끝남.
+            AI 안부전화는 범용 질문만 가능함.
+            병원과 집 사이에 데이터 단절.
+            어르신의 상태 변화를 아무도 연결하지 못함.
+          </p>
+        </div>
+        <div style="padding:2.5rem; background:#1d1d1f; border-radius:16px; color:#f5f5f7;">
+          <h3 style="color:#6ac4dc;">HAGO일 때</h3>
+          <p class="mt-1" style="color:#a1a1a6; font-size:0.9375rem;">
+            진료기록이 케어콜의 대화를 개인화함.
+            케어콜 데이터가 다음 진료를 정밀화함.
+            약국이 오프라인 거점으로 연결됨.
+            순환할수록 AI 예측 정확도가 올라감.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETITIVE MOAT -->
+  <section class="section-gray">
+    <div class="container text-center">
+      <p class="label">Competitive Advantage</p>
+      <h2>아무도 서 있지 않은<br>교차점.</h2>
+      <p class="mt-2">
+        네이버 클로바 케어콜은 목소리만 있고,
+        엠슈어는 기록만 있습니다.
+        HAGO는 유일하게 병원 안과 밖을
+        하나의 데이터 루프로 연결하는 플랫폼입니다.
+      </p>
+    </div>
+
+    <div class="container">
+      <div class="image-placeholder mt-3">
+        <!--
+        IMAGE PROMPT — HAGO Positioning Map (Full):
+        A 2x2 positioning matrix on clean white background.
+        X-axis: "단순 조회 ← → 데이터 연동·순환"
+        Y-axis: "병원 밖 ← → 병원 안"
+
+        Bottom-left quadrant: cluster of small gray dots labeled
+        "기존 AI 안부전화 (클로바, 누구)"
+        Top-left quadrant: cluster of small gray dots labeled
+        "기존 진료기록 조회 (엠슈어 등)"
+
+        Top-right: teal circle labeled "MNE"
+        Bottom-right: gold circle labeled "COLO"
+        Center-right, overlapping MNE and COLO:
+        larger gradient circle (teal-to-gold) labeled "HAGO"
+
+        Dotted circle around the HAGO zone with label "Blue Ocean —
+        병원 안팎을 연결하는 유일한 플랫폼"
+
+        Style: minimal business chart, clean Korean typography,
+        subtle shadows on circles. Investor presentation quality.
+        Aspect ratio 16:9.
+        -->
+        이미지 영역 — HAGO 통합 포지셔닝 맵
+      </div>
+    </div>
+  </section>
+
+  <!-- ECOSYSTEM -->
+  <section>
+    <div class="container text-center">
+      <p class="label">Ecosystem</p>
+      <h2>모두가 이유를 갖는<br>생태계.</h2>
+      <p class="mt-2">
+        HAGO 플랫폼 위에서
+        각 참여자는 서로 다른 이유로 연결되고,
+        서로 다른 가치를 얻습니다.
+      </p>
+    </div>
+    <div class="container">
+      <div class="stat-grid mt-4" style="grid-template-columns:repeat(2,1fr);">
+        <div class="stat-item" style="padding:2rem; background:#f5f5f7; border-radius:16px; text-align:left;">
+          <div class="stat-number" style="font-size:1.25rem;">병원</div>
+          <div class="stat-label" style="text-align:left;">
+            초기 상담 시간 단축, 실손보험 기반 수익 증대,
+            퇴원 환자 재방문율 상승
+          </div>
+        </div>
+        <div class="stat-item" style="padding:2rem; background:#f5f5f7; border-radius:16px; text-align:left;">
+          <div class="stat-number" style="font-size:1.25rem;">약국</div>
+          <div class="stat-label" style="text-align:left;">
+            조제료 외 추가 수익원 확보,
+            AI 리포트 기반 복약 상담 전문성 강화,
+            단골 고객 확보
+          </div>
+        </div>
+        <div class="stat-item" style="padding:2rem; background:#f5f5f7; border-radius:16px; text-align:left;">
+          <div class="stat-number" style="font-size:1.25rem;">자녀</div>
+          <div class="stat-label" style="text-align:left;">
+            부모님 건강 상태 실시간 파악,
+            멀리 살아도 안심할 수 있는 주간 리포트,
+            비용 대비 높은 돌봄 효율
+          </div>
+        </div>
+        <div class="stat-item" style="padding:2rem; background:#f5f5f7; border-radius:16px; text-align:left;">
+          <div class="stat-number" style="font-size:1.25rem;">지자체</div>
+          <div class="stat-label" style="text-align:left;">
+            돌봄 인력 부족 해소,
+            고독사 예방 성과 지표 확보,
+            인력 1명 비용으로 100명 실시간 케어
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND -->
+  <section class="section-dark" style="padding:6rem 0;">
+    <div class="container text-center">
+      <p class="label">Brand</p>
+      <h2 style="color:#f5f5f7; font-size:clamp(2.5rem,5vw,4rem);">깨어나는 돌봄,<br>HAGO.</h2>
+      <p class="mt-2">
+        하품하는고양이는 나른함이 아니라 각성입니다.<br>
+        기지개를 펴는 순간, 새로운 시작.<br>
+        MNE가 잠든 기억을 깨우고,<br>
+        COLO가 끊어진 소통을 잇습니다.<br>
+        돌봄이 깨어나는 곳, HAGO.
+      </p>
+    </div>
+
+    <div class="container">
+      <div class="image-placeholder mt-3" style="background:linear-gradient(135deg,#2d2d2f 0%,#1a1a1c 100%); max-width:480px; aspect-ratio:1/1; border-radius:50%;">
+        <!--
+        IMAGE PROMPT — Brand Symbol:
+        A minimal, elegant cat silhouette in mid-yawn/stretch pose,
+        viewed from the side. The cat's body forms a gentle arch
+        (like a stretching cat waking up).
+        The silhouette is rendered in a single gradient line
+        from teal (left/tail) to warm gold (right/head),
+        symbolizing the transition from MNE (memory) to COLO (communication).
+        Below the cat: "HAGO" in clean, light sans-serif typography.
+        Background: pure black or very dark charcoal.
+        The overall feel is premium, minimal, and iconic —
+        like an Apple or luxury brand logo.
+        Style: vector logo illustration, single continuous line art.
+        Aspect ratio 1:1.
+        -->
+        이미지 영역<br>HAGO 브랜드 심볼<br>기지개 펴는 고양이
+      </div>
+    </div>
+
+    <div class="container text-center mt-4">
+      <a href="index.html" class="cta-button">처음으로 돌아가기</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top:1px solid rgba(255,255,255,0.06);">
+    <p>© 2026 하품하는고양이 yawncat.co.kr — 깨어나는 돌봄, HAGO</p>
+  </footer>
+
+</body>
+</html>

@@ -5,4 +5,12 @@ const nextConfig = {
   trailingSlash: true,
 };
 
+module.exports = {
+  async redirects() {
+    return [
+      { source: '/', destination: '/pages/index.html', permanent: true },
+    ];
+  },
+};
+
 export default nextConfig;
