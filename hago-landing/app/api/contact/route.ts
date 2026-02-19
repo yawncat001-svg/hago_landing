@@ -1,37 +1,39 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+export const runtime = 'edge';
+
 export async function POST(req: Request) {
-    try {
-        const body = await req.json();
-        const { companyName, contactInfo, concern } = body;
+  try {
+    const body = await req.json();
+    const { companyName, contactInfo, concern } = body;
 
-        // Validate input
-        if (!companyName || !contactInfo || !concern) {
-            return NextResponse.json(
-                { message: 'Missing required fields' },
-                { status: 400 }
-            );
-        }
+    // Validate input
+    if (!companyName || !contactInfo || !concern) {
+      return NextResponse.json(
+        { message: 'Missing required fields' },
+        { status: 400 }
+      );
+    }
 
-        const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
-            port: Number(process.env.SMTP_PORT),
-            secure: false, // true for 465, false for other ports
-            auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS,
-            },
-        });
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT),
+      secure: false, // true for 465, false for other ports
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
 
-        const timestamp = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
+    const timestamp = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul' });
 
-        // HTML Email Template
-        const mailOptions = {
-            from: process.env.SMTP_USER,
-            to: process.env.CONTACT_EMAIL || 'hago@yawncat.co.kr',
-            subject: `[AI 진단 신청] ${companyName} - ${timestamp}`,
-            html: `
+    // HTML Email Template
+    const mailOptions = {
+      from: process.env.SMTP_USER,
+      to: process.env.CONTACT_EMAIL || 'hago@yawncat.co.kr',
+      subject: `[AI 진단 신청] ${companyName} - ${timestamp}`,
+      html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
           <h2 style="color: #333; text-align: center; border-bottom: 2px solid #39ff14; padding-bottom: 10px;">
             AI 진단 리포트 신청 알림
@@ -64,19 +66,19 @@ export async function POST(req: Request) {
           </p>
         </div>
       `,
-        };
+    };
 
-        await transporter.sendMail(mailOptions);
+    await transporter.sendMail(mailOptions);
 
-        return NextResponse.json(
-            { message: 'Email sent successfully' },
-            { status: 200 }
-        );
-    } catch (error) {
-        console.error('Email send error:', error);
-        return NextResponse.json(
-            { message: 'Failed to send email' },
-            { status: 500 }
-        );
-    }
+    return NextResponse.json(
+      { message: 'Email sent successfully' },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error('Email send error:', error);
+    return NextResponse.json(
+      { message: 'Failed to send email' },
+      { status: 500 }
+    );
+  }
 }
