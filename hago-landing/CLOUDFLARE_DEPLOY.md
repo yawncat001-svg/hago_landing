@@ -1,52 +1,33 @@
-# Cloudflare Pages 배포 및 업데이트 가이드
+# Cloudflare Pages 배포 가이드 (최종 최적화)
 
-이 문서는 HAGO 랜딩 페이지를 Cloudflare Pages에 배포하고 업데이트하는 방법을 설명합니다.
+이 프로젝트는 Next.js App Router와 Resend(API)를 사용하며, Cloudflare Pages에 최적화되어 있습니다.
 
-## 1. 초기 배포 (GitHub 연결) - 추천
+## 1. Cloudflare 대시보드 빌드 설정 (가장 중요)
 
-가장 쉽고 권장되는 방법은 GitHub 저장소와 Cloudflare Pages를 연결하는 것입니다.
+Vercel 관련 설정을 모두 제거했으므로, Cloudflare Pages 대시보드에서 아래와 같이 **정확하게** 입력해야 배포에 실패하지 않습니다.
 
-1.  **GitHub에 코드 푸시**:
-    *   현재 작업 중인 코드를 GitHub 저장소에 업로드합니다.
-2.  **Cloudflare 대시보드 접속**:
-    *   [Cloudflare Dashboard](https://dash.cloudflare.com/)에 로그인합니다.
-    *   **Workers & Pages** > **Create application** > **Pages** > **Connect to Git**을 선택합니다.
-3.  **저장소 선택 및 설정**:
-    *   HAGO 프로젝트 저장소를 선택합니다.
-    *   **Build settings**:
-        *   **Framework preset**: `Next.js`
-        *   **Build command**: `npm run build`
-        *   **Build output directory**: `.next` (또는 Cloudflare가 자동 감지하는 기본값)
-4.  **환경 변수 설정**:
-    *   **Environment variables** 섹션에서 `.env.local`에 포함된 모든 변수들을 추가합니다.
-    *   특히 `SMTP` 관련 정보가 정확해야 문의 폼이 작동합니다.
-5.  **Save and Deploy**:
-    *   첫 배포가 시작됩니다.
+*   **프레임워크 미리 설정 (Framework preset)**: `None` (또는 `Next.js`)
+*   **빌드 명령 (Build command)**: `npx @cloudflare/next-on-pages`
+*   **빌드 출력 디렉터리 (Build output directory)**: `.vercel/output/static`
+    *   *참고: `.vercel`이라는 이름은 Cloudflare의 빌드 도구가 사용하는 표준 규격 명칭일 뿐, Vercel 서비스와는 무관합니다.*
+*   **루트 디렉터리 (Root directory)**: `/` (또는 비워둠)
+    *   *주의: 현재 레포지토리 최상위에 파일들이 있다면 `hago-landing`이 아니라 `/`이어야 합니다.*
 
-## 2. 업데이트 방법
+## 2. 환경 변수 설정 (Settings > Environment variables)
 
-GitHub 연결 방식에서는 업데이트가 매우 간단합니다.
+이메일 발송 기능을 위해 다음 변수들을 **Production**과 **Preview** 모두에 추가하세요.
 
-*   **자동 업데이트**: GitHub의 `main` 브랜치에 코드를 푸시(Push)하거나 PR을 머지(Merge)하면 Cloudflare가 이를 감지하여 **자동으로 다시 빌드하고 배포**합니다.
-*   **수동 업데이트**: Cloudflare 대시보드의 프로젝트 페이지에서 **Deployments** 탭으로 이동하여 최근 배포를 다시 실행(Retry)할 수도 있습니다.
+| 변수명 | 값 |
+| :--- | :--- |
+| `RESEND_API_KEY` | `re_8GFqEhMh_DGWmpeUCY1MbveF5VpDi2Pbg` |
+| `CONTACT_EMAIL` | `yawncat.001@gmail.com` |
+| `NODE_VERSION` | `18` 이상 |
 
-## 3. wrangler CLI를 사용한 수동 배포
+## 3. 호환성 플래그 (Settings > Functions > Compatibility flags)
 
-GitHub을 사용하지 않거나 로컬에서 직접 배포하고 싶을 때 사용합니다.
+*   **Node.js compatibility**: `nodejs_compat` 플래그를 추가하거나 활성화하세요. (Edge Runtime에서 Resend SDK 사용 시 필요할 수 있습니다.)
 
-1.  **wrangler 설치**:
-    ```bash
-    npm install -g wrangler
-    ```
-2.  **프로젝트 빌드**:
-    ```bash
-    npm run build
-    ```
-3.  **배포 명령 실행**:
-    ```bash
-    npx wrangler pages deploy .next
-    ```
-    *   첫 실행 시 Cloudflare 로그인이 필요할 수 있습니다.
+## 4. 업데이트 방법
 
-> [!TIP]
-> **브랜치 프리뷰**: GitHub 연결 시, `main` 브랜치 외의 다른 브랜치에 푸시하면 별도의 프리뷰 URL을 생성해 줍니다. 배포 전 미리 확인하기 좋습니다.
+*   `main` 브랜치에 코드가 푸시되면 Cloudflare가 자동으로 감지하여 빌드 및 배포를 진행합니다.
+*   빌드 명령이나 출력 디렉터리가 위와 다를 경우 `Output directory not found` 에러가 발생하므로 반드시 확인해 주세요.
