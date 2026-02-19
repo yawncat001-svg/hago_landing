@@ -1,7 +1,7 @@
 export default function Home() {
     return (
-        <main className="bg-zinc-950 text-white min-h-screen flex items-center justify-center">
-            <h1 className="text-4xl font-bold">yawncat</h1>
-        </main>
+        <div style={{ backgroundColor: '#0a0a0a', color: 'white', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <h1 style={{ fontSize: '2.25rem', fontWeight: 'bold' }}>yawncat</h1>
+        </div>
     );
 }
