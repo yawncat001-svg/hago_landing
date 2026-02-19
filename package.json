@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "copy public\\index.html out\\index.html",
+    "postbuild": "cp public/index.html out/index.html",
     "start": "next start"
   },
   "dependencies": {
