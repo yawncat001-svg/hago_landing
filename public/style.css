@@ -590,16 +590,43 @@ footer p {
 }
 
 .info-item {
-  font-size: 0.9375rem;
-  color: #6e6e73;
+  display: none;
+}
+
+/* New styles for info boxes */
+.info-box {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   line-height: 1.6;
 }
 
-.info-item strong {
+.info-box strong {
   display: block;
-  font-size: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
   color: #1d1d1f;
-  margin-bottom: 0.25rem;
+}
+
+.info-box span {
+  font-size: 0.9375rem;
+  color: #6e6e73;
+}
+
+.info-box a {
+  color: #0070c9;
+  text-decoration: none;
+}
+
+.info-box a:hover {
+  text-decoration: underline;
 }
 
 /* Responsive */
