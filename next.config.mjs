@@ -3,9 +3,6 @@ const nextConfig = {
   output: 'export',
   reactStrictMode: true,
   trailingSlash: true,
-};
-
-module.exports = {
   async redirects() {
     return [
       { source: '/', destination: '/pages/index.html', permanent: true },
