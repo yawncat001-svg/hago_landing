@@ -1,7 +1,7 @@
 export default function Home() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <h1 className="text-4xl font-bold">yawncat</h1>
+    <div>
+      <h1>Redirecting...</h1>
     </div>
   );
 }

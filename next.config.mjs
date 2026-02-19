@@ -5,7 +5,7 @@ const nextConfig = {
   trailingSlash: true,
   async redirects() {
     return [
-      { source: '/', destination: '/pages/index.html', permanent: true },
+      { source: '/', destination: '/index.html', permanent: true },
     ];
   },
 };
