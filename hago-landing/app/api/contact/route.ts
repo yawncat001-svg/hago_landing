@@ -23,10 +23,9 @@ export async function POST(req: Request) {
 
     // Resend를 이용한 이메일 발송
     const { data, error } = await resend.emails.send({
-      // Resend에서 인증된 도메인이 없는 경우 기본값인 'onboarding@resend.dev' 사용 가능
-      // 실제 서비스 시에는 인증된 도메인 이메일로 변경 권장
+      // Resend에서 도메인 인증 전에는 'onboarding@resend.dev'만 발신자로 사용 가능합니다.
       from: 'HAGO <onboarding@resend.dev>',
-      to: [process.env.CONTACT_EMAIL || 'hago@yawncat.co.kr'],
+      to: [process.env.CONTACT_EMAIL || 'yawncat.001@gmail.com'],
       subject: `[AI 진단 신청] ${companyName} - ${timestamp}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #ddd; padding: 20px; border-radius: 10px;">
