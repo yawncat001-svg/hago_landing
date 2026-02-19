@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 10, 10, 10;
+    --background-end-rgb: 0, 0, 0;
+
+    --font-inter: 'Inter', sans-serif;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        height: 100%;
+        overflow-y: scroll;
+        scroll-snap-type: y mandatory;
+    }
+
+    body {
+        color: rgb(var(--foreground-rgb));
+        background: linear-gradient(to bottom,
+                transparent,
+                rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+        height: 100%;
+    }
+
+    section {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    /* Disable scroll snap on mobile if content overflows */
+    @media (max-width: 768px) {
+        html {
+            scroll-snap-type: none;
+            height: auto;
+            overflow-y: auto;
+        }
+
+        body {
+            height: auto;
+        }
+
+        section {
+            min-height: 100svh;
+            height: auto;
+            display: block;
+            /* Stack naturally on mobile */
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+            scroll-snap-align: none;
+        }
+    }
+}
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .neon-glow {
+        text-shadow: 0 0 10px rgba(57, 255, 20, 0.7), 0 0 20px rgba(57, 255, 20, 0.5);
+    }
+
+    .neon-border {
+        box-shadow: 0 0 5px rgba(57, 255, 20, 0.5), inset 0 0 5px rgba(57, 255, 20, 0.2);
+    }
+}
