@@ -150,7 +150,11 @@
         <!-- File (optional) -->
         <div class="form-group">
           <label>첨부파일 (선택)</label>
-          <input type="file" name="attachment" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.jpg,.png" style="padding:0.625rem 1rem">
+          <div id="dropZone" class="drop-zone">
+            <p>파일을 여기에 드래그하거나 클릭하여 선택하세요</p>
+            <input type="file" id="fileInput" name="attachment" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.jpg,.png" style="display: none;">
+          </div>
+          <div id="fileList" class="file-list"></div>
         </div>
 
         <!-- Consent -->
@@ -219,12 +223,87 @@ function selectCategory(type) {
   document.getElementById('form-section').scrollIntoView({ behavior: 'smooth' });
 }
 
+// Drag and Drop functionality
+const dropZone = document.getElementById('dropZone');
+const fileInput = document.getElementById('fileInput');
+const fileList = document.getElementById('fileList');
+
+dropZone.addEventListener('click', () => fileInput.click());
+
+dropZone.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  dropZone.classList.add('dragover');
+});
+
+dropZone.addEventListener('dragleave', () => {
+  dropZone.classList.remove('dragover');
+});
+
+dropZone.addEventListener('drop', (e) => {
+  e.preventDefault();
+  dropZone.classList.remove('dragover');
+  const files = e.dataTransfer.files;
+  handleFiles(files);
+});
+
+fileInput.addEventListener('change', (e) => {
+  handleFiles(e.target.files);
+});
+
+function handleFiles(files) {
+  Array.from(files).forEach(file => {
+    addFileToList(file);
+  });
+}
+
+function addFileToList(file) {
+  const fileItem = document.createElement('div');
+  fileItem.className = 'file-item';
+  fileItem.innerHTML = `
+    <span class="file-name">${file.name} (${(file.size / 1024).toFixed(1)} KB)</span>
+    <span class="remove-file" onclick="removeFile(this)">×</span>
+  `;
+  fileList.appendChild(fileItem);
+}
+
+function removeFile(element) {
+  element.parentElement.remove();
+}
+
 // Form submit handler
 function handleSubmit(e) {
   e.preventDefault();
 
   const form = document.getElementById('contactForm');
   const formData = new FormData(form);
+
+  // Generate markdown content
+  let markdown = '# 문의 접수\n\n';
+  markdown += `**접수 시간:** ${new Date().toLocaleString('ko-KR')}\n\n`;
+  markdown += `**문의 유형:** ${formData.get('category')}\n`;
+  markdown += `**이름:** ${formData.get('name')}\n`;
+  markdown += `**소속:** ${formData.get('company')}\n`;
+  markdown += `**직함:** ${formData.get('role') || '미입력'}\n`;
+  markdown += `**지역:** ${formData.get('region') || '미입력'}\n`;
+  markdown += `**이메일:** ${formData.get('email')}\n`;
+  markdown += `**연락처:** ${formData.get('phone')}\n\n`;
+  markdown += `**문의 내용:**\n${formData.get('message')}\n\n`;
+
+  const file = formData.get('attachment');
+  if (file && file.name) {
+    markdown += `**첨부파일:** ${file.name} (${(file.size / 1024).toFixed(1)} KB)\n`;
+  }
+
+  // Create and download markdown file
+  const blob = new Blob([markdown], { type: 'text/markdown' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'memory.md';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 
   // 실제 운영 시 여기에 fetch API 또는 이메일 전송 로직 연결
   // 예: Google Forms, Formspree, 자체 백엔드 등
@@ -237,6 +316,7 @@ function handleSubmit(e) {
   // 현재는 UI 확인용으로 확인 오버레이만 표시
   document.getElementById('confirmOverlay').classList.add('active');
   form.reset();
+  fileList.innerHTML = ''; // Clear file list
 }
 
 // Close overlay on outside click
