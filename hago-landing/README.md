@@ -13,6 +13,10 @@
   npm -v
   ```
 
+## 주의: Cloudflare Pages 배포 설정
+- **Build command**: `npx @cloudflare/next-on-pages@1`
+- **Build output directory**: `.vercel/output/static` (필수!)
+- **Root directory**: `hago-landing`
 ## 2. 프로젝트 실행 (Run Project)
 
 프로젝트 폴더(`c:\_ag_yawncat\hago-landing`)로 이동하여 다음 명령어를 순서대로 입력하세요.
