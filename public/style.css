@@ -17,7 +17,6 @@ body {
   background: #fff;
   line-height: 1.7;
   letter-spacing: -0.02em;
-  padding-top: 52px;
 }
 
 /* ===== TYPOGRAPHY ===== */
@@ -88,7 +87,9 @@ nav {
   left: 0;
   right: 0;
   z-index: 100;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
@@ -135,6 +136,7 @@ nav .nav-links a:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding-top: 52px;
   background: #fbfbfd;
 }
 
