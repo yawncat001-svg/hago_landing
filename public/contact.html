@@ -174,7 +174,7 @@
           <label>첨부파일 (선택)</label>
           <div id="dropZone" class="drop-zone">
             <p>파일을 여기에 드래그하거나 클릭하여 선택하세요</p>
-            <input type="file" id="fileInput" name="attachment" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.jpg,.png" style="display: none;">
+            <input type="file" id="fileInput" name="attachment[]" accept=".pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.jpg,.png" style="display: none;" multiple>
           </div>
           <div id="fileList" class="file-list"></div>
         </div>
@@ -251,6 +251,7 @@ function selectCategory(type) {
 const dropZone = document.getElementById('dropZone');
 const fileInput = document.getElementById('fileInput');
 const fileList = document.getElementById('fileList');
+let attachedFiles = []; // Array to store files
 
 dropZone.addEventListener('click', () => fileInput.click());
 
@@ -276,6 +277,7 @@ fileInput.addEventListener('change', (e) => {
 
 function handleFiles(files) {
   Array.from(files).forEach(file => {
+    attachedFiles.push(file);
     addFileToList(file);
   });
 }
@@ -283,6 +285,7 @@ function handleFiles(files) {
 function addFileToList(file) {
   const fileItem = document.createElement('div');
   fileItem.className = 'file-item';
+  fileItem.dataset.fileName = file.name; // Store file name for removal
   fileItem.innerHTML = `
     <span class="file-name">${file.name} (${(file.size / 1024).toFixed(1)} KB)</span>
     <span class="remove-file" onclick="removeFile(this)">×</span>
@@ -291,6 +294,8 @@ function addFileToList(file) {
 }
 
 function removeFile(element) {
+  const fileNameToRemove = element.parentElement.dataset.fileName;
+  attachedFiles = attachedFiles.filter(file => file.name !== fileNameToRemove);
   element.parentElement.remove();
 }
 
@@ -300,6 +305,11 @@ async function handleSubmit(e) {
 
   const form = document.getElementById('contactForm');
   const formData = new FormData(form);
+
+  // Append attached files to formData
+  attachedFiles.forEach(file => {
+    formData.append('attachment[]', file);
+  });
 
   // Web3Forms submission
   try {
@@ -313,6 +323,7 @@ async function handleSubmit(e) {
       document.getElementById('confirmOverlay').classList.add('active');
       form.reset();
       fileList.innerHTML = ''; // Clear file list
+      attachedFiles = []; // Clear attachedFiles array
     } else {
       alert("문의 보내기 실패: " + data.message);
     }
