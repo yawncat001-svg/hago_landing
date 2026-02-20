@@ -69,6 +69,7 @@ section {
 .mt-3 { margin-top: 3rem; }
 .mt-4 { margin-top: 4rem; }
 
+.ml-2 { margin-left: 0.5rem; }
 /* ===== NAV ===== */
 nav {
   position: fixed;
@@ -247,7 +248,7 @@ nav .nav-links a:hover {
   display: inline-block;
   margin-top: 2rem;
   padding: 0.875rem 2rem;
-  background: #0071e3;
+  background: #000;
   color: #fff;
   font-size: 1rem;
   font-weight: 500;
@@ -264,8 +265,8 @@ nav .nav-links a:hover {
 
 .cta-button.outline {
   background: transparent;
-  color: #0071e3;
-  border: 1px solid #0071e3;
+  color: #000;
+  border: 1px solid #000;
 }
 
 /* ===== FOOTER ===== */
